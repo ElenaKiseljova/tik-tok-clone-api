@@ -101,8 +101,8 @@ class UserController extends Controller
     try {
       $user = User::findOrFail(auth()->user()->id);
 
-      $user->name = $request->validated('name');
-      $user->bio = $request->validated('bio');
+      $user->name = $request->input('name');
+      $user->bio = $request->input('bio');
 
       $user->save();
 

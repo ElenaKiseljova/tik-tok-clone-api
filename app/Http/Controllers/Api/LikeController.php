@@ -34,10 +34,10 @@ class LikeController extends Controller
     ]);
 
     try {
-      $like = new Like();
+      $like = new Like;
 
       $like->user_id = auth()->user()->id;
-      $like->post_id = $request->validated('post_id');
+      $like->post_id = $request->input('post_id');
 
       $like->save();
 

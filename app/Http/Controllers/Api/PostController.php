@@ -41,7 +41,7 @@ class PostController extends Controller
       $post = (new FileService)->addVideo($post, $request);
 
       $post->user_id = auth()->user()->id;
-      $post->text = $request->validated('text');
+      $post->text = $request->input('text');
 
       $post->save();
 

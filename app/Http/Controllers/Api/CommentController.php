@@ -35,11 +35,11 @@ class CommentController extends Controller
     ]);
 
     try {
-      $comment = new Comment();
+      $comment = new Comment;
 
       $comment->user_id = auth()->user()->id;
-      $comment->post_id = $request->validated('post_id');
-      $comment->text = $request->validated('text');
+      $comment->post_id = $request->input('post_id');
+      $comment->text = $request->input('text');
 
       $comment->save();
 
