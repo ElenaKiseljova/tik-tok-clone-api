@@ -2,11 +2,15 @@
 
 namespace App\Services;
 
+use App\Models\Post;
+use App\Models\User;
+use Illuminate\Http\Request;
+
 use Image;
 
 class FileService
 {
-  public function updateImage($model, $request)
+  public function updateImage(User $model, Request $request): User
   {
     $image = Image::make($request->file('image'));
 
@@ -36,5 +40,19 @@ class FileService
 
       return $model;
     }
+  }
+
+  public function addVideo(Post $model, Request $request): Post
+  {
+    $video = $request->file('video');
+    $extension = $video->getClientOriginalExtension();
+
+    $name = time() . '.' . $extension;
+
+    $video->move(public_path() . '/files/', $name);
+
+    $model->video = '/files/' . $name;
+
+    return $model;
   }
 }
