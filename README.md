@@ -3,7 +3,9 @@
 This project was created from this
 [video](https://www.youtube.com/watch?v=CHSL0Btbj_o&t=3s)
 
-# Node version
+# Intervention Image library
+
+[Intervention Image](https://image.intervention.io/v2)
 
 _v18.15.0_
 
