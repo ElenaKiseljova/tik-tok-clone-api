@@ -18,7 +18,7 @@ class AllPostsCollection extends ResourceCollection
       return [
         'id' => $post->id,
         'text' => $post->text,
-        'video' => url('/') . $post->text,
+        'video' => url('/') . $post->video,
         'created_at' => $post->created_at->format(' M D Y'),
         'comments' => $post->comments->map(function ($comment) {
           return [
